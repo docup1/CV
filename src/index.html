@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Портфолио Олега Хайцына - Backend разработчик и DevOps энтузиаст">
+    <meta name="keywords" content="Backend, DevOps, веб-разработка, портфолио">
+    <meta name="author" content="Олег Хайцын">
+    <title>Олег Хайцын</title>
+    <link href="styles/main.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="bg-animation"></div>
+
+<!-- Прогресс-бар -->
+<div class="progress-bar">
+    <div class="progress-fill"></div>
+</div>
+
+<!-- Навигация по секциям -->
+<nav class="nav-dots">
+    <div class="nav-dot active" data-section="hero"></div>
+    <div class="nav-dot" data-section="about"></div>
+    <div class="nav-dot" data-section="experience"></div>
+    <div class="nav-dot" data-section="skills"></div>
+    <div class="nav-dot" data-section="interests"></div>
+    <div class="nav-dot" data-section="contact"></div>
+</nav>
+
+<!-- Header / Hero -->
+<header id="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Олег Хайцын</h1>
+        <p class="hero-subtitle">Backend Developer & DevOps Enthusiast</p>
+        <p class="hero-description">
+            Разрабатываю масштабируемые и надёжные серверные решения, проектирую базы данных
+            и автоматизирую процессы CI/CD. Люблю оптимизацию, чистый код и стабильные системы.
+        </p>
+        <div class="cta-buttons">
+            <a href="#about" class="btn btn-primary">
+                <i class="fas fa-user"></i> Узнать больше
+            </a>
+            <a href="#contact" class="btn btn-outline">
+                <i class="fas fa-envelope"></i> Связаться
+            </a>
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <!-- О себе -->
+    <section id="about" class="profile-section">
+        <div class="profile-image-container">
+            <img src="../public/img/me.jpeg" alt="Олег Хайцын" class="profile-image">
+        </div>
+        <div class="profile-content">
+            <h2>О себе</h2>
+            <p class="profile-role">Backend Developer & DevOps</p>
+            <p class="profile-location">
+                <i class="fas fa-map-marker-alt"></i>
+                Могилев, Беларусь / Санкт-Петербург, Россия
+            </p>
+            <p>
+                Бэкенд-разработчик с опытом проектирования API, работы с базами данных,
+                контейнеризацией и настройкой CI/CD пайплайнов. Считаю, что хорошая архитектура
+                и грамотная автоматизация — ключ к стабильным и масштабируемым продуктам.
+            </p>
+        </div>
+    </section>
+
+    <!-- Опыт -->
+    <section id="experience">
+        <div class="section-header">
+            <h3 class="section-title">Опыт</h3>
+            <p class="section-subtitle">
+                Учёба, проекты и первые шаги в backend и DevOps разработке
+            </p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="timeline-content">
+                    <h4 class="timeline-title">Студент (3 курс)</h4>
+                    <p class="timeline-subtitle">Университет ИТМО</p>
+                    <p>
+                        Осваиваю backend-разработку и DevOps-практики: распределённые системы, базы данных,
+                        микросервисную архитектуру и сетевые технологии. Участвую в командных университетских проектах.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="timeline-content">
+                    <h4 class="timeline-title">Pet-проекты и open-source</h4>
+                    <p class="timeline-subtitle">Личные инициативы</p>
+                    <p>
+                        • Создаю учебные микросервисы на C# и Go (REST/gRPC).<br>
+                        • Экспериментирую с Cassandra, Redis и PostgreSQL.<br>
+                        • Разрабатываю собственный игровой движок на Go.<br>
+                        • Вношу вклад в open-source проекты.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="timeline-content">
+                    <h4 class="timeline-title">Стажировка Backend Developer</h4>
+                    <p class="timeline-subtitle">FinTech Startup</p>
+                    <p>
+                        Разработка API на Python (FastAPI), настройка CI/CD в GitHub Actions, работа с Docker и PostgreSQL.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Навыки -->
+    <section id="skills">
+        <div class="section-header">
+            <h3 class="section-title">Навыки</h3>
+            <p class="section-subtitle">Технологии, инструменты и опыт работы с ними</p>
+        </div>
+
+        <div class="skills-grid">
+
+            <!-- Backend / Programming -->
+            <div class="skill-category card">
+                <h4><i class="fas fa-code"></i> Backend & Программирование</h4>
+                <div class="skill-items">
+                    <div class="skill-item"><img src="../public/img/skills/csharp.png" alt="C#"> C#</div>
+                    <div class="skill-item"><img src="../public/img/skills/java.png" alt="Java"> Java</div>
+                    <div class="skill-item"><img src="../public/img/skills/python.png" alt="Python"> Python</div>
+                    <div class="skill-item"><img src="../public/img/skills/cpp.png" alt="C/C++"> C/C++</div>
+                    <div class="skill-item"><img src="../public/img/skills/unity.png" alt="Unity"> Unity</div>
+                    <div class="skill-item"><img src="../public/img/skills/arduino.png" alt="Arduino"> Arduino</div>
+                </div>
+            </div>
+
+            <!-- Web / Networking -->
+            <div class="skill-category card">
+                <h4><i class="fas fa-network-wired"></i> Web & Networking</h4>
+                <div class="skill-items">
+                    <div class="skill-item"><img src="../public/img/skills/restapi.png" alt="REST API"> REST API</div>
+                    <div class="skill-item"><img src="../public/img/skills/websocket.png" alt="WebSocket"> WebSocket</div>
+                    <div class="skill-item"><img src="../public/img/skills/grpc.png" alt="gRPC"> gRPC</div>
+                </div>
+            </div>
+
+            <!-- Databases -->
+            <div class="skill-category card">
+                <h4><i class="fas fa-database"></i> Базы данных</h4>
+                <div class="skill-items">
+                    <div class="skill-item"><img src="../public/img/skills/mongo.png" alt="MongoDB"> MongoDB</div>
+                    <div class="skill-item"><img src="../public/img/skills/redis.png" alt="Redis"> Redis</div>
+                    <div class="skill-item"><img src="../public/img/skills/postgres.png" alt="PostgreSQL"> PostgreSQL</div>
+                    <div class="skill-item"><img src="../public/img/skills/cassandra.png" alt="Cassandra"> Cassandra</div>
+                    <div class="skill-item"><img src="../public/img/skills/kafka.png" alt="Kafka"> Kafka</div>
+                </div>
+            </div>
+
+            <!-- DevOps / Infra -->
+            <div class="skill-category card">
+                <h4><i class="fas fa-cloud"></i> DevOps & Инфраструктура</h4>
+                <div class="skill-items">
+                    <div class="skill-item"><img src="../public/img/skills/nginx.png" alt="NGINX"> NGINX</div>
+                    <div class="skill-item"><img src="../public/img/skills/docker.png" alt="Docker"> Docker</div>
+                    <div class="skill-item"><img src="../public/img/skills/linux.png" alt="Linux"> Linux</div>
+                    <div class="skill-item"><img src="../public/img/skills/cicd.png" alt="CI/CD"> CI/CD</div>
+                </div>
+            </div>
+
+            <!-- Design -->
+            <div class="skill-category card">
+                <h4><i class="fas fa-paint-brush"></i> Дизайн</h4>
+                <div class="skill-items">
+                    <div class="skill-item"><img src="../public/img/skills/figma.png" alt="Figma"> Figma</div>
+                    <div class="skill-item"><img src="../public/img/skills/indesign.png" alt="InDesign"> InDesign</div>
+                    <div class="skill-item"><img src="../public/img/skills/illustrator.png" alt="Illustrator"> Illustrator</div>
+                </div>
+            </div>
+
+            <!-- 3D / CAD -->
+            <div class="skill-category card">
+                <h4><i class="fas fa-cube"></i> 3D-моделирование & CAD</h4>
+                <div class="skill-items">
+                    <div class="skill-item"><img src="../public/img/skills/fusion360.png" alt="Fusion 360"> Fusion 360</div>
+                    <div class="skill-item"><img src="../public/img/skills/solidworks.png" alt="SolidWorks"> SolidWorks</div>
+                    <div class="skill-item"><img src="../public/img/skills/inventor.png" alt="Inventor"> Inventor</div>
+                </div>
+            </div>
+
+            <!-- Electronics -->
+            <div class="skill-category card">
+                <h4><i class="fas fa-microchip"></i> Электроника & PCB</h4>
+                <div class="skill-items">
+                    <div class="skill-item"><img src="../public/img/skills/kicad.png" alt="KiCad"> KiCad</div>
+                    <div class="skill-item"><img src="../public/img/skills/easyeda.png" alt="EasyEDA"> EasyEDA</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Интересы -->
+    <section id="interests">
+        <div class="section-header">
+            <h3 class="section-title">Интересы и увлечения</h3>
+            <p class="section-subtitle">Немного о том, что вдохновляет меня за пределами кода</p>
+        </div>
+
+        <div class="interests-grid">
+            <div class="interest-item">
+                <i class="fas fa-gamepad"></i>
+                <h4>Игровая разработка</h4>
+                <p>Экспериментирую с написанием простых игр и собственных игровых движков на Go.</p>
+            </div>
+
+            <div class="interest-item">
+                <i class="fas fa-robot"></i>
+                <h4>IoT & электроника</h4>
+                <p>Люблю собирать прототипы с Arduino и BLE-датчиками, работать с сенсорами и робототехникой.</p>
+            </div>
+
+            <div class="interest-item">
+                <i class="fas fa-plane"></i>
+                <h4>Путешествия</h4>
+                <p>Изучаю новые страны и культуры, вдохновляюсь архитектурой и природой.</p>
+            </div>
+
+            <div class="interest-item">
+                <i class="fas fa-book"></i>
+                <h4>Саморазвитие</h4>
+                <p>Читаю техническую литературу, статьи о распределённых системах и современных подходах к DevOps.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact">
+        <div class="section-header">
+            <h3 class="section-title">Контакты</h3>
+            <p class="section-subtitle">Свяжитесь со мной для обсуждения проектов</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <h4>Email</h4>
+                <a href="mailto:oleg.haitsyn@example.com">oleg.haitsyn@example.com</a>
+            </div>
+
+            <div class="contact-item">
+                <i class="fab fa-telegram"></i>
+                <h4>Telegram</h4>
+                <a href="https://t.me/oleg_dev">@oleg_dev</a>
+            </div>
+
+            <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <h4>GitHub</h4>
+                <a href="https://github.com/oleg-dev">oleg-dev</a>
+            </div>
+
+            <div class="contact-item">
+                <i class="fab ТГК"></i>
+                <h4>ТГК</h4>
+                <a href="https://t.me/oleg_dev">oleg-haitsyn</a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2025 Олег Хайцын. Все права защищены.</p>
+    <p>Создано с любовью к коду и архитектуре систем ⚡</p>
+</footer>
+
+<script src="scripts/main.js"></script>
+</body>
+</html>
