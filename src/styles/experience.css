@@ -1,0 +1,5 @@
+#experience header{display:flex; justify-content:space-between; align-items:end; gap:12px}
+#experience article{padding:14px; border-radius:12px; background:linear-gradient(180deg, rgba(17,138,178,0.03), transparent); margin-bottom:12px; transform-origin:center; transition:transform 420ms cubic-bezier(.2,.9,.3,1)}
+#experience article h3{margin:0 0 6px}
+#experience article time{color:var(--muted); font-size:13px}
+#experience article ul{padding-left:18px; color:var(--muted)}

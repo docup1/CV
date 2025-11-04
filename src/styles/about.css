@@ -1,0 +1,43 @@
+/* Polaroid style */
+#polaroid{
+    width:420px;
+    background:linear-gradient(180deg, #fff 0%, #fff 100%);
+    border-radius:10px;
+    padding:18px 18px 22px 18px;
+    transform: rotate(-4deg);
+    box-shadow: 10px 18px 40px rgba(8,20,32,0.12);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    margin: 0;
+}
+
+#polaroid img{
+    display:block;
+    width:360px;
+    height:360px;
+    object-fit:cover;
+    border:12px solid #fff;
+    border-radius:6px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transform: rotate(2deg);
+}
+
+/* figcaption */
+#polaroid figcaption{
+    margin-top:12px;
+    text-align:center;
+    font-weight:600;
+    color:var(--ink);
+}
+#polaroid figcaption span{display:block; color:var(--muted); font-weight:500; margin-top:6px}
+
+/* About text */
+#about-text h2{font-size:24px; margin-top:0}
+#cta-row{margin-top:14px; display:flex; gap:12px; align-items:center}
+#cta-row a, #cta-row button{
+    padding:10px 14px; border-radius:10px; cursor:pointer; border:0; font-weight:600;
+}
+#cta-row a{background:linear-gradient(90deg,var(--accent-1), #ffd489); color:#072033}
+#cta-row button{background:var(--accent-3); color:#fff}

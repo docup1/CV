@@ -1,0 +1,6 @@
+address{display:flex; flex-direction:column; gap:10px}
+address p{display:flex; align-items:center; gap:10px}
+address svg{width:20px; height:20px}
+#print-btn{
+    padding:10px 14px; border-radius:10px; border:0; background:linear-gradient(90deg,var(--accent-1), var(--accent-3)); color:#072033; font-weight:700; cursor:pointer;
+}

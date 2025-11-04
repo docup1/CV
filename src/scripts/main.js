@@ -1,123 +1,48 @@
-// ================================
-// Прокрутка страницы и прогресс-бар
-// ================================
-function updateProgressBar() {
-    // Вычисляем процент прокрутки страницы
-    const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-    const progressFill = document.querySelector('.progress-fill');
-    if (progressFill) {
-        progressFill.style.width = scrolled + '%';
+// main.js — интерактивность: скачивание CV, анимации появления (pop/tilt/spring)
+document.addEventListener('DOMContentLoaded', () => {
+    const downloadBtn = document.getElementById('download-cv');
+    const printBtn = document.getElementById('print-btn');
+
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            // собираем печатную версию — тут просто запускаем печать
+            window.print();
+        });
     }
-}
 
-// ====================================
-// Анимация появления секций при скролле
-// ====================================
-function animateOnScroll() {
-    const sections = document.querySelectorAll('section');
-    const triggerHeight = window.innerHeight * 0.8;
+    if (printBtn) {
+        printBtn.addEventListener('click', () => window.print());
+    }
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionBottom = sectionTop + section.offsetHeight;
+    // Intersection animations (pop / tilt / spring)
+    const animated = Array.from(document.querySelectorAll('[data-animate]'));
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const t = entry.target;
+                    const mode = t.getAttribute('data-animate');
+                    if (mode === 'pop') {
+                        t.style.transform = 'scale(1.03) rotate(0.6deg)';
+                        t.style.transition = 'transform 600ms cubic-bezier(.2,.9,.3,1)';
+                        setTimeout(()=> t.style.transform = 'scale(1) rotate(0deg)', 600);
+                    } else if (mode === 'tilt') {
+                        t.style.transform = 'translateY(-6px) rotate(-1.4deg)';
+                        t.style.transition = 'transform 520ms cubic-bezier(.3,.85,.25,1)';
+                        setTimeout(()=> t.style.transform = 'translateY(0) rotate(0)', 520);
+                    } else if (mode === 'spring') {
+                        t.style.transform = 'scale(1.04)';
+                        t.style.transition = 'transform 700ms cubic-bezier(.2,1.1,.3,1)';
+                        setTimeout(()=> t.style.transform = 'scale(1)', 700);
+                    }
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, {threshold: 0.2});
 
-        if (window.scrollY > sectionTop - triggerHeight && window.scrollY < sectionBottom) {
-            section.classList.add('visible'); // Добавляем класс для анимации
-        }
-    });
-}
-
-// ================================
-// Обновление активного состояния точек навигации
-// ================================
-function updateNavDots() {
-    const sections = ['hero', 'about', 'experience', 'skills', 'interests', 'contact'];
-    const navDots = document.querySelectorAll('.nav-dot');
-    const scrollPos = window.scrollY + window.innerHeight * 0.1; // Немного смещаем для точности
-
-    sections.forEach((sectionId, index) => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            const top = section.offsetTop;
-            const bottom = top + section.offsetHeight;
-            if (scrollPos >= top && scrollPos <= bottom) {
-                navDots.forEach(dot => dot.classList.remove('active'));
-                if (navDots[index]) navDots[index].classList.add('active');
-            }
-        }
-    });
-}
-
-// ================================
-// Плавная прокрутка при клике на точки навигации
-// ================================
-document.querySelectorAll('.nav-dot').forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        const sections = ['hero', 'about', 'experience', 'skills', 'interests', 'contact'];
-        const targetSection = document.getElementById(sections[index]);
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
-// ================================
-// Плавная прокрутка для кнопок CTA
-// ================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
-// ================================
-// Скрытие/появление хедера при скролле
-// ================================
-function toggleHeader() {
-    const header = document.querySelector("header");
-    const about = document.getElementById("about");
-    if (!header || !about) return;
-
-    const scrollPos = window.scrollY;
-
-    if (scrollPos >= about.offsetTop - 100) {
-        header.classList.add("hidden"); // Скрываем хедер
+        animated.forEach(el => observer.observe(el));
     } else {
-        header.classList.remove("hidden"); // Показываем хедер
+        // fallback: just apply a subtle effect
+        animated.forEach(t => t.style.opacity = 1);
     }
-}
-
-// ================================
-// Параллакс эффект для hero секции
-// ================================
-function parallaxHero() {
-    const hero = document.getElementById('hero');
-    if (!hero) return;
-    const scrolled = window.scrollY;
-    hero.style.transform = `translateY(${scrolled * 0.5}px)`; // Смещение фона
-}
-
-// ================================
-// Объединенный обработчик скролла для оптимизации
-// ================================
-function onScrollHandler() {
-    updateProgressBar();
-    animateOnScroll();
-    updateNavDots();
-    toggleHeader();
-    parallaxHero();
-}
-
-// ================================
-// Инициализация при загрузке страницы
-// ================================
-window.addEventListener('scroll', onScrollHandler);
-window.addEventListener('load', () => {
-    onScrollHandler(); // Анимации и состояния при загрузке
 });
-
-

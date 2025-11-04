@@ -1,297 +1,238 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Портфолио Олега Хайцына - Backend разработчик и DevOps энтузиаст">
-    <meta name="keywords" content="Backend, DevOps, веб-разработка, портфолио">
-    <meta name="author" content="Олег Хайцын">
-    <title>Олег Хайцын</title>
-    <link href="styles/main.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Портфолио Олега Хайцына - Backend & DevOps" />
+    <title>Олег Хайцын — портфолио</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/about.css">
+    <link rel="stylesheet" href="styles/experience.css">
+    <link rel="stylesheet" href="styles/skills.css">
+    <link rel="stylesheet" href="styles/projects.css">
+    <link rel="stylesheet" href="styles/contact.css">
+    <link rel="stylesheet" href="styles/responsive.css">
 </head>
 <body>
-<div class="bg-animation"></div>
 
-<!-- Прогресс-бар -->
-<div class="progress-bar">
-    <div class="progress-fill"></div>
-</div>
+<a href="#main" id="skip-link">Перейти к содержанию</a>
 
-<!-- Навигация по секциям -->
-<nav class="nav-dots">
-    <div class="nav-dot active" data-section="hero"></div>
-    <div class="nav-dot" data-section="about"></div>
-    <div class="nav-dot" data-section="experience"></div>
-    <div class="nav-dot" data-section="skills"></div>
-    <div class="nav-dot" data-section="interests"></div>
-    <div class="nav-dot" data-section="contact"></div>
-</nav>
+<!--<header role="banner" aria-label="Заголовок">-->
+<!--    <div>-->
+<!--        <h1>Олег Хайцын</h1>-->
+<!--        <p id="role">Backend Developer & DevOps Enthusiast</p>-->
+<!--    </div>-->
 
-<!-- Header / Hero -->
-<header id="hero">
-    <div class="hero-content">
-        <h1 class="hero-title">Олег Хайцын</h1>
-        <p class="hero-subtitle">Backend Developer & DevOps Enthusiast</p>
-        <p class="hero-description">
-            Разрабатываю масштабируемые и надёжные серверные решения, проектирую базы данных
-            и автоматизирую процессы CI/CD. Люблю оптимизацию, чистый код и стабильные системы.
-        </p>
-        <div class="cta-buttons">
-            <a href="#about" class="btn btn-primary">
-                <i class="fas fa-user"></i> Узнать больше
-            </a>
-            <a href="#contact" class="btn btn-outline">
-                <i class="fas fa-envelope"></i> Связаться
-            </a>
-        </div>
-    </div>
-</header>
+<!--    <div aria-hidden="true" id="decor-icons">-->
+<!--        &lt;!&ndash; decorative SVGs &ndash;&gt;-->
+<!--        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#FFD166" /></svg>-->
+<!--        <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="#06D6A0"/></svg>-->
+<!--    </div>-->
+<!--</header>-->
 
-<main>
+<main id="main" role="main">
+    <!-- HERO / ABOUT with polaroid -->
+    <section id="about" aria-labelledby="about-title">
+        <figure id="polaroid">
+            <img src="../public/img/me.jpeg" alt="Портрет Олега Хайцына" width="420" height="420" loading="lazy">
+            <figcaption>
+                <strong>Олег Хайцын</strong>
+                <span>Backend & DevOps</span>
+            </figcaption>
+        </figure>
 
-    <!-- О себе -->
-    <section id="about" class="profile-section">
-        <div class="profile-image-container">
-            <img src="../public/img/me.jpeg" alt="Олег Хайцын" class="profile-image">
-        </div>
-        <div class="profile-content">
-            <h2>О себе</h2>
-            <p class="profile-role">Backend Developer & DevOps</p>
-            <p class="profile-location">
-                <i class="fas fa-map-marker-alt"></i>
-                Могилев, Беларусь / Санкт-Петербург, Россия
-            </p>
+        <div id="about-text">
+            <h2 id="about-title">Обо мне</h2>
+            <p id="location"><small>Могилев, Беларусь / Санкт-Петербург, Россия</small></p>
             <p>
                 Бэкенд-разработчик с опытом проектирования API, работы с базами данных,
-                контейнеризацией и настройкой CI/CD пайплайнов. Считаю, что хорошая архитектура
-                и грамотная автоматизация — ключ к стабильным и масштабируемым продуктам.
+                контейнеризацией и автоматизацией CI/CD. Создаю надёжные серверные решения,
+                оптимизирую производительность и проектирую архитектуру с учётом масштабируемости.
             </p>
+
+<!--            <p id="cta-row">-->
+<!--                <a href="#projects" role="button" aria-label="Перейти к проектам">Мои проекты</a>-->
+<!--                <button id="download-cv" aria-label="Скачать резюме">Скачать CV</button>-->
+<!--            </p>-->
         </div>
     </section>
 
-    <!-- Опыт -->
-    <section id="experience">
-        <div class="section-header">
-            <h3 class="section-title">Опыт</h3>
-            <p class="section-subtitle">
-                Учёба, проекты и первые шаги в backend и DevOps разработке
-            </p>
-        </div>
+    <!-- EXPERIENCE -->
+    <section id="experience" aria-labelledby="exp-title">
+        <header>
+            <h2 id="exp-title">Опыт</h2>
+            <p class="subtitle">Учёба, стажировки и pet-проекты</p>
+        </header>
 
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-marker">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div class="timeline-content">
-                    <h4 class="timeline-title">Студент (3 курс)</h4>
-                    <p class="timeline-subtitle">Университет ИТМО</p>
-                    <p>
-                        Осваиваю backend-разработку и DevOps-практики: распределённые системы, базы данных,
-                        микросервисную архитектуру и сетевые технологии. Участвую в командных университетских проектах.
-                    </p>
-                </div>
+        <article aria-labelledby="exp-itmo" data-animate="pop">
+            <h3 id="exp-itmo">Студент (3 курс) — Университет ИТМО</h3>
+            <time datetime="2021">2021 — настоящее</time>
+            <p>Осваиваю backend и DevOps: распределённые системы, базы данных, микросервисы, сетевые технологии.</p>
+        </article>
+
+        <article aria-labelledby="exp-open" data-animate="pop">
+            <h3 id="exp-open">Pet-проекты и open-source</h3>
+            <ul>
+                <li>Учебные микросервисы на C# и Go (REST / gRPC)</li>
+                <li>Эксперименты с Cassandra, Redis, PostgreSQL</li>
+                <li>Игровой движок на Go, вклад в open-source</li>
+            </ul>
+        </article>
+
+        <article aria-labelledby="exp-intern" data-animate="pop">
+            <h3 id="exp-intern">Стажировка — FinTech Startup</h3>
+            <time datetime="2022">2022</time>
+            <p>Разработка API на FastAPI, CI/CD в GitHub Actions, Docker, PostgreSQL.</p>
+        </article>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" aria-labelledby="skills-title">
+        <header>
+            <h2 id="skills-title">Навыки</h2>
+            <p class="subtitle">Технологии и компетенции</p>
+        </header>
+
+        <div id="skills-grid">
+            <div aria-labelledby="core-title" data-animate="spring">
+                <h3 id="core-title">Backend & Core</h3>
+                <p>Основные языки и подходы к разработке серверной части приложений</p>
+                <ul>
+                    <li><strong>C#</strong> — ASP.NET Core, Entity Framework, LINQ</li>
+                    <li><strong>Go</strong> — высокопроизводительные сервисы, конкурентность</li>
+                    <li><strong>Python</strong> — FastAPI, Django, скриптинг</li>
+                    <li><strong>REST API</strong> — проектирование и документирование</li>
+                    <li><strong>gRPC</strong> — межсервисное взаимодействие</li>
+                    <li><strong>Микросервисы</strong> — декомпозиция и оркестрация</li>
+                    <li><strong>CQRS & Event Sourcing</strong> — паттерны архитектуры</li>
+                </ul>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-marker">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <div class="timeline-content">
-                    <h4 class="timeline-title">Pet-проекты и open-source</h4>
-                    <p class="timeline-subtitle">Личные инициативы</p>
-                    <p>
-                        • Создаю учебные микросервисы на C# и Go (REST/gRPC).<br>
-                        • Экспериментирую с Cassandra, Redis и PostgreSQL.<br>
-                        • Разрабатываю собственный игровой движок на Go.<br>
-                        • Вношу вклад в open-source проекты.
-                    </p>
-                </div>
+            <div aria-labelledby="databases-title" data-animate="spring">
+                <h3 id="databases-title">Базы данных</h3>
+                <p>Работа с реляционными и NoSQL хранилищами</p>
+                <ul>
+                    <li><strong>PostgreSQL</strong> — индексы, оптимизация запросов</li>
+                    <li><strong>MongoDB</strong> — документо-ориентированные БД</li>
+                    <li><strong>Redis</strong> — кеширование, очереди задач</li>
+                    <li><strong>Cassandra</strong> — распределенные системы</li>
+                    <li><strong>Kafka</strong> — стриминг событий</li>
+                </ul>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-marker">
-                    <i class="fas fa-briefcase"></i>
-                </div>
-                <div class="timeline-content">
-                    <h4 class="timeline-title">Стажировка Backend Developer</h4>
-                    <p class="timeline-subtitle">FinTech Startup</p>
-                    <p>
-                        Разработка API на Python (FastAPI), настройка CI/CD в GitHub Actions, работа с Docker и PostgreSQL.
-                    </p>
-                </div>
+            <div aria-labelledby="tools-title" data-animate="spring">
+                <h3 id="tools-title">DevOps & Tools</h3>
+                <p>Инструменты автоматизации и инфраструктуры</p>
+                <ul>
+                    <li><strong>Docker</strong> — контейнеризация приложений</li>
+                    <li><strong>Docker Compose</strong> — локальная разработка</li>
+                    <li><strong>GitHub Actions</strong> — CI/CD пайплайны</li>
+                    <li><strong>Nginx</strong> — реверс-прокси, балансировка</li>
+                    <li><strong>Git</strong> — версионирование, branching стратегии</li>
+                    <li><strong>Linux</strong> — администрирование серверов</li>
+                </ul>
+            </div>
+
+            <div aria-labelledby="soft-title" data-animate="spring">
+                <h3 id="soft-title">Методологии & Soft Skills</h3>
+                <p>Профессиональные навыки и подходы к работе</p>
+                <ul>
+                    <li><strong>Командная работа</strong> — code review, парное программирование</li>
+                    <li><strong>Документирование</strong> — OpenAPI, README, ADR</li>
+                    <li><strong>Тестирование</strong> — Unit, Integration, E2E тесты</li>
+                    <li><strong>Архитектурное мышление</strong> — проектирование систем</li>
+                    <li><strong>Agile/Scrum</strong> — гибкая разработка</li>
+                    <li><strong>Анализ требований</strong> — декомпозиция задач</li>
+                </ul>
             </div>
         </div>
     </section>
+    <!-- PROJECTS -->
+    <section id="projects" aria-labelledby="proj-title">
+        <header>
+            <h2 id="proj-title">Проекты</h2>
+            <p class="subtitle">Карточки проектов — стек и ссылка</p>
+        </header>
 
-    <!-- Навыки -->
-    <section id="skills">
-        <div class="section-header">
-            <h3 class="section-title">Навыки</h3>
-            <p class="section-subtitle">Технологии, инструменты и опыт работы с ними</p>
-        </div>
+        <div id="projects-list" aria-live="polite">
+            <article data-animate="tilt">
+                <header>
+                    <!-- SVG-иконка проекта -->
+                    <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="#118AB2"/></svg>
+                    <h3>AirVM — переносимая виртуальная машина</h3>
+                </header>
+                <p class="muted">C, Make — архитектура VM, байткод и отладчик</p>
+                <p>Встраиваемая виртуальная машина для выполнения текстового байткода, модульная архитектура и инструменты разработки.</p>
+                <p><strong>Стек:</strong> C, Make, CI</p>
+                <p><a href="https://github.com/docup1/AirVM" target="_blank" rel="noopener">Исходный код</a></p>
+            </article>
 
-        <div class="skills-grid">
+            <article data-animate="tilt">
+                <header>
+                    <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#06D6A0"/></svg>
+                    <h3>Unlim — социальная платформа</h3>
+                </header>
+                <p class="muted">ASP.NET Core, MongoDB, Redis</p>
+                <p>Платформа для публикации проектов и рекомендаций — CQRS и микросервисы.</p>
+                <p><strong>Стек:</strong> C#, MongoDB, Redis, Docker</p>
+                <p><a href="https://github.com/docup1/Unlim" target="_blank" rel="noopener">Исходный код</a></p>
+            </article>
 
-            <!-- Backend / Programming -->
-            <div class="skill-category card">
-                <h4><i class="fas fa-code"></i> Backend & Программирование</h4>
-                <div class="skill-items">
-                    <div class="skill-item"><img src="../public/img/skills/csharp.png" alt="C#"> C#</div>
-                    <div class="skill-item"><img src="../public/img/skills/java.png" alt="Java"> Java</div>
-                    <div class="skill-item"><img src="../public/img/skills/python.png" alt="Python"> Python</div>
-                    <div class="skill-item"><img src="../public/img/skills/cpp.png" alt="C/C++"> C/C++</div>
-                    <div class="skill-item"><img src="../public/img/skills/unity.png" alt="Unity"> Unity</div>
-                    <div class="skill-item"><img src="../public/img/skills/arduino.png" alt="Arduino"> Arduino</div>
-                </div>
-            </div>
-
-            <!-- Web / Networking -->
-            <div class="skill-category card">
-                <h4><i class="fas fa-network-wired"></i> Web & Networking</h4>
-                <div class="skill-items">
-                    <div class="skill-item"><img src="../public/img/skills/restapi.png" alt="REST API"> REST API</div>
-                    <div class="skill-item"><img src="../public/img/skills/websocket.png" alt="WebSocket"> WebSocket</div>
-                    <div class="skill-item"><img src="../public/img/skills/grpc.png" alt="gRPC"> gRPC</div>
-                </div>
-            </div>
-
-            <!-- Databases -->
-            <div class="skill-category card">
-                <h4><i class="fas fa-database"></i> Базы данных</h4>
-                <div class="skill-items">
-                    <div class="skill-item"><img src="../public/img/skills/mongo.png" alt="MongoDB"> MongoDB</div>
-                    <div class="skill-item"><img src="../public/img/skills/redis.png" alt="Redis"> Redis</div>
-                    <div class="skill-item"><img src="../public/img/skills/postgres.png" alt="PostgreSQL"> PostgreSQL</div>
-                    <div class="skill-item"><img src="../public/img/skills/cassandra.png" alt="Cassandra"> Cassandra</div>
-                    <div class="skill-item"><img src="../public/img/skills/kafka.png" alt="Kafka"> Kafka</div>
-                </div>
-            </div>
-
-            <!-- DevOps / Infra -->
-            <div class="skill-category card">
-                <h4><i class="fas fa-cloud"></i> DevOps & Инфраструктура</h4>
-                <div class="skill-items">
-                    <div class="skill-item"><img src="../public/img/skills/nginx.png" alt="NGINX"> NGINX</div>
-                    <div class="skill-item"><img src="../public/img/skills/docker.png" alt="Docker"> Docker</div>
-                    <div class="skill-item"><img src="../public/img/skills/linux.png" alt="Linux"> Linux</div>
-                    <div class="skill-item"><img src="../public/img/skills/cicd.png" alt="CI/CD"> CI/CD</div>
-                </div>
-            </div>
-
-            <!-- Design -->
-            <div class="skill-category card">
-                <h4><i class="fas fa-paint-brush"></i> Дизайн</h4>
-                <div class="skill-items">
-                    <div class="skill-item"><img src="../public/img/skills/figma.png" alt="Figma"> Figma</div>
-                    <div class="skill-item"><img src="../public/img/skills/indesign.png" alt="InDesign"> InDesign</div>
-                    <div class="skill-item"><img src="../public/img/skills/illustrator.png" alt="Illustrator"> Illustrator</div>
-                </div>
-            </div>
-
-            <!-- 3D / CAD -->
-            <div class="skill-category card">
-                <h4><i class="fas fa-cube"></i> 3D-моделирование & CAD</h4>
-                <div class="skill-items">
-                    <div class="skill-item"><img src="../public/img/skills/fusion360.png" alt="Fusion 360"> Fusion 360</div>
-                    <div class="skill-item"><img src="../public/img/skills/solidworks.png" alt="SolidWorks"> SolidWorks</div>
-                    <div class="skill-item"><img src="../public/img/skills/inventor.png" alt="Inventor"> Inventor</div>
-                </div>
-            </div>
-
-            <!-- Electronics -->
-            <div class="skill-category card">
-                <h4><i class="fas fa-microchip"></i> Электроника & PCB</h4>
-                <div class="skill-items">
-                    <div class="skill-item"><img src="../public/img/skills/kicad.png" alt="KiCad"> KiCad</div>
-                    <div class="skill-item"><img src="../public/img/skills/easyeda.png" alt="EasyEDA"> EasyEDA</div>
-                </div>
-            </div>
-
+            <article data-animate="tilt">
+                <header>
+                    <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z" fill="#EF476F"/></svg>
+                    <h3>WitMotion BLE Connector</h3>
+                </header>
+                <p class="muted">C++, Qt, CMake</p>
+                <p>Кроссплатформенная библиотека для взаимодействия с IMU датчиками через Bluetooth + пример с Qt.</p>
+                <p><strong>Стек:</strong> C++, Qt, CMake</p>
+                <p><a href="https://github.com/docup1/WitMotion-BLE" target="_blank" rel="noopener">Исходный код</a></p>
+            </article>
         </div>
     </section>
 
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Контакты</h2>
+        <p class="subtitle">Свяжитесь для обсуждения проектов</p>
 
-    <!-- Интересы -->
-    <section id="interests">
-        <div class="section-header">
-            <h3 class="section-title">Интересы и увлечения</h3>
-            <p class="section-subtitle">Немного о том, что вдохновляет меня за пределами кода</p>
-        </div>
-
-        <div class="interests-grid">
-            <div class="interest-item">
-                <i class="fas fa-gamepad"></i>
-                <h4>Игровая разработка</h4>
-                <p>Экспериментирую с написанием простых игр и собственных игровых движков на Go.</p>
-            </div>
-
-            <div class="interest-item">
-                <i class="fas fa-robot"></i>
-                <h4>IoT & электроника</h4>
-                <p>Люблю собирать прототипы с Arduino и BLE-датчиками, работать с сенсорами и робототехникой.</p>
-            </div>
-
-            <div class="interest-item">
-                <i class="fas fa-plane"></i>
-                <h4>Путешествия</h4>
-                <p>Изучаю новые страны и культуры, вдохновляюсь архитектурой и природой.</p>
-            </div>
-
-            <div class="interest-item">
-                <i class="fas fa-book"></i>
-                <h4>Саморазвитие</h4>
-                <p>Читаю техническую литературу, статьи о распределённых системах и современных подходах к DevOps.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Проекты -->
-    <section id="projects">
-    </section>
-
-    <!-- Контакты -->
-    <section id="contact">
-        <div class="section-header">
-            <h3 class="section-title">Контакты</h3>
-            <p class="section-subtitle">Свяжитесь со мной для обсуждения проектов</p>
-        </div>
-
-        <div class="contact-grid">
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <h4>Email</h4>
+        <address>
+            <p>
+                <!-- email icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z" fill="#118AB2"/></svg>
                 <a href="mailto:oleg.haitsyn@example.com">oleg.haitsyn@example.com</a>
-            </div>
+            </p>
 
-            <div class="contact-item">
-                <i class="fab fa-telegram"></i>
-                <h4>Telegram</h4>
-                <a href="https://t.me/oleg_dev">@oleg_dev</a>
-            </div>
+            <p>
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#06D6A0"/></svg>
+                <a href="https://t.me/oleg_dev" target="_blank" rel="noopener">@oleg_dev</a>
+            </p>
 
-            <div class="contact-item">
-                <i class="fab fa-github"></i>
-                <h4>GitHub</h4>
-                <a href="https://github.com/oleg-dev">oleg-dev</a>
-            </div>
+            <p>
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="#FFD166"/></svg>
+                <a href="https://github.com/docup1" target="_blank" rel="noopener">github.com/docup1</a>
+            </p>
+        </address>
 
-            <div class="contact-item">
-                <i class="fab ТГК"></i>
-                <h4>ТГК</h4>
-                <a href="https://t.me/oleg_dev">oleg-haitsyn</a>
-            </div>
-        </div>
+        <p>
+            <button id="print-btn" aria-label="Распечатать страницу">Распечатать / Скачать PDF</button>
+        </p>
     </section>
-
 </main>
 
-<footer>
-    <p>&copy; 2025 Олег Хайцын. Все права защищены.</p>
-    <p>Создано с любовью к коду и архитектуре систем ⚡</p>
-</footer>
+<!--<footer role="contentinfo">-->
+<!--    <p>&copy; 2025 Олег Хайцын — создано с любовью к архитектуре и простоте.</p>-->
+<!--</footer>-->
 
-<script src="scripts/main.js"></script>
+<!-- JS -->
+<script src="scripts/progress.js" defer></script>
+<script src="scripts/main.js" defer></script>
 </body>
 </html>
