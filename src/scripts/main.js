@@ -1,3 +1,96 @@
+(function() {
+    const PREPOSITIONS = [
+        "в","и","к","с","у","о","а","но",
+        "от","до","на","по","под","при","про",
+        "над","без","для","из"
+    ];
+
+    // Теги, внутри которых НЕ нужно менять текст
+    const EXCLUDE_TAGS = new Set([
+        "SCRIPT","STYLE","CODE","PRE","KBD","SAMP","TEXTAREA","OPTION","NOSCRIPT","SVG"
+    ]);
+
+    // Построим регулярку: захватываем возможный ведущий пробел/начало строки, затем предлог, затем пробелы
+    // Пример замены: " в дом" -> " в дом" (тут мы сохраняем ведущий пробел, заменяем обычный пробел после предлога на NBSP)
+    const re = new RegExp(`(^|\\s)(${PREPOSITIONS.join("|")})(\\s+)`, "gi");
+
+    function isExcluded(node) {
+        let p = node.parentNode;
+        while (p && p.nodeType === 1) {
+            if (EXCLUDE_TAGS.has(p.tagName)) return true;
+            p = p.parentNode;
+        }
+        return false;
+    }
+
+    function processTextNode(node) {
+        if (!node || !node.nodeValue) return;
+        const original = node.nodeValue;
+        // пропускаем короткие и пустые узлы
+        if (original.trim().length < 2) return;
+
+        const replaced = original.replace(re, (match, lead, prep, spaces) => {
+            // lead — ведущая пробельная последовательность или начало строки
+            // prep — сам предлог (с точным регистром из текста)
+            // мы должны вернуть lead + prep + NBSP (но не потерять lead)
+            return lead + prep + "\u00A0";
+        });
+
+        if (replaced !== original) node.nodeValue = replaced;
+    }
+
+    function walkAndFix(root = document.body) {
+        if (!root) return;
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+        let node;
+        while (walker.nextNode()) {
+            node = walker.currentNode;
+            if (isExcluded(node)) continue;
+            processTextNode(node);
+        }
+    }
+
+    // Запустить при загрузке DOM
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => walkAndFix(document.body));
+    } else {
+        walkAndFix(document.body);
+    }
+
+    // Опционально: отслеживаем динамически добавленные узлы (SPA). Можно убрать, если не нужен.
+    const observer = new MutationObserver(mutations => {
+        for (const m of mutations) {
+            // новые узлы
+            if (m.addedNodes && m.addedNodes.length) {
+                m.addedNodes.forEach(n => {
+                    if (n.nodeType === 3) { // текстовый узел
+                        if (!isExcluded(n)) processTextNode(n);
+                    } else if (n.nodeType === 1) { // элемент
+                        if (!EXCLUDE_TAGS.has(n.tagName)) walkAndFix(n);
+                    }
+                });
+            }
+            // изменённые текстовые узлы внутри существующих элементов
+            if (m.type === "characterData" && m.target) {
+                const t = m.target;
+                if (t.nodeType === 3 && !isExcluded(t)) processTextNode(t);
+            }
+        }
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+    });
+
+    // Экспорт функции (если нужно вызвать вручную в консоли)
+    window.fixHungPrepositions = () => walkAndFix(document.body);
+})();
+
+
+
+
 // ===================== ПАРТИКЛЫ (ФОН) =====================
 const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
