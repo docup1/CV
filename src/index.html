@@ -2,232 +2,569 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="Портфолио Олега Хайцына - Backend & DevOps" />
-    <title>Олег Хайцын — портфолио</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Олег Хайцын — Backend & DevOps Engineer. Go, C#, Kubernetes, высокие нагрузки, микросервисы." />
+    <title>Олег Хайцын — Backend & DevOps Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f0ff;
+            --neon-pink: #ff006e;
+            --neon-purple: #8b5cf6;
+            --neon-green: #00ff88;
+            --neon-yellow: #ffea00;
+            --neon-orange: #ff6b00;
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+            --bg-start: #0a0e27;
+            --bg-mid: #1a1f3a;
+            --bg-end: #0f1629;
+            --card-bg: rgba(26,31,58,0.8);
+            --card-bg-dark: rgba(15,22,41,0.8);
+            --text: #fff;
+            --text-muted: rgba(255,255,255,0.9);
+            --text-light: rgba(255,255,255,0.85);
+        }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/about.css">
-    <link rel="stylesheet" href="styles/experience.css">
-    <link rel="stylesheet" href="styles/skills.css">
-    <link rel="stylesheet" href="styles/projects.css">
-    <link rel="stylesheet" href="styles/contact.css">
-    <link rel="stylesheet" href="styles/responsive.css">
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-mid) 50%, var(--bg-end) 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        #particles-canvas, body::before {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::before {
+            content: '';
+            background-image:
+                    linear-gradient(var(--neon-blue) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--neon-blue) 1px, transparent 1px);
+            background-size: 100px 100px;
+            opacity: 0.03;
+            animation: gridPulse 4s ease-in-out infinite;
+        }
+        @keyframes gridPulse { 0%,100%{opacity:0.03} 50%{opacity:0.08} }
+
+        main { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            text-align: center;
+            padding: 120px 20px 100px;
+        }
+        h1 {
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple), var(--neon-pink), var(--neon-green));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 6s ease infinite, float 3s ease-in-out infinite;
+            text-shadow: 0 0 80px rgba(0,240,255,0.5);
+            position: relative;
+        }
+        h1::before, h1::after {
+            content: attr(data-text);
+            position: absolute;
+            inset: 0;
+            background: inherit;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h1::before { animation: glitch1 2.5s infinite; clip-path: polygon(0 0,100% 0,100% 45%,0 45%); }
+        h1::after  { animation: glitch2 2.5s infinite; clip-path: polygon(0 55%,100% 55%,100% 100%,0 100%); }
+        @keyframes glitch1 { 0%,100%{transform:translate(0)} 33%{transform:translate(-3px,2px)} 66%{transform:translate(3px,-2px)} }
+        @keyframes glitch2 { 0%,100%{transform:translate(0)} 33%{transform:translate(3px,-2px)} 66%{transform:translate(-3px,2px)} }
+        @keyframes gradientFlow { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+
+        .subtitle {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+        .location {
+            color: var(--neon-green);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px var(--neon-green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+
+        figure {
+            width: 320px;
+            height: 320px;
+            margin: 0 auto 60px;
+            border-radius: 50%;
+            position: relative;
+        }
+        figure::before, figure::after {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink), var(--neon-purple), var(--neon-green), var(--neon-blue));
+            background-size: 400% 400%;
+            animation: gradientFlow 8s ease infinite;
+            filter: blur(15px);
+            z-index: -1;
+        }
+        figure::after { inset: -8px; animation: gradientFlow 6s ease infinite, rotate 15s linear infinite reverse; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid var(--bg-start);
+            transition: transform .5s;
+        }
+        figure:hover img { transform: scale(1.05); }
+
+        .btn {
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all .4s cubic-bezier(.175,.885,.32,1.275);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 50%;
+            border-radius: 50%;
+            background: rgba(255,255,255,.3);
+            transform: translate(-50%,-50%);
+            transition: width .6s, height .6s;
+        }
+        .btn:hover::before { width: 400px; height: 400px; }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 40px rgba(0,240,255,.4), 0 8px 20px rgba(0,0,0,.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 0 60px rgba(0,240,255,.8), 0 15px 40px rgba(0,0,0,.4);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--neon-pink);
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 30px rgba(255,0,110,.3);
+        }
+        .btn-secondary:hover {
+            background: var(--neon-pink);
+            color: white;
+            transform: translateY(-6px) scale(1.05);
+        }
+
+        section { padding: 100px 0; }
+        h2 {
+            text-align: center;
+            font-size: clamp(2.5rem,7vw,4.5rem);
+            font-weight: 900;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg,var(--neon-pink),var(--neon-blue),var(--neon-green));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 4s ease infinite;
+            text-shadow: 0 0 60px rgba(0,240,255,.5);
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.4rem;
+            color: rgba(255,255,255,.8);
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px,1fr));
+            gap: 40px;
+        }
+        article {
+            background: linear-gradient(135deg, var(--card-bg), var(--card-bg-dark));
+            border-radius: 30px;
+            padding: 40px;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(0,240,255,.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,.3), 0 0 60px rgba(0,240,255,.1);
+            transition: all .5s cubic-bezier(.175,.885,.32,1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        article::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,240,255,.2), transparent);
+            transition: left .7s;
+        }
+        article:hover::before { left: 100%; }
+        article::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg,var(--neon-blue),var(--neon-pink),var(--neon-purple),var(--neon-green));
+            border-radius: 30px;
+            opacity: 0;
+            transition: opacity .5s;
+            z-index: -1;
+        }
+        article:hover::after { opacity: 1; }
+        article:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 0 80px rgba(0,240,255,.4);
+            border-color: var(--neon-blue);
+        }
+        article h3 {
+            font-size: 1.8rem;
+            margin: 20px 0;
+            background: linear-gradient(135deg,var(--neon-blue),var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .tag {
+            padding: 8px 20px;
+            background: rgba(0,240,255,.1);
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+            border-radius: 50px;
+            font-size: .9rem;
+            font-weight: 600;
+            transition: all .4s;
+            box-shadow: 0 0 20px rgba(0,240,255,.2);
+        }
+        .tag:hover {
+            background: var(--neon-blue);
+            color: var(--bg-start);
+            transform: translateY(-4px) scale(1.1);
+        }
+
+        hr {
+            height: 3px;
+            border: none;
+            background: linear-gradient(90deg, transparent, var(--neon-blue), var(--neon-pink), var(--neon-purple), transparent);
+            margin: 80px 0;
+            animation: energyFlow 3s linear infinite;
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+        @keyframes energyFlow { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
+
+        .cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0,240,255,.15) 0%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%,-50%);
+            z-index: 9999;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 100px 20px 80px; }
+            figure { width: 250px; height: 250px; }
+            article { padding: 30px; }
+        }
+    </style>
 </head>
 <body>
+<canvas id="particles-canvas"></canvas>
+<div class="cursor-glow"></div>
 
-<a href="#main" id="skip-link">Перейти к содержанию</a>
-
-<!--<header role="banner" aria-label="Заголовок">-->
-<!--    <div>-->
-<!--        <h1>Олег Хайцын</h1>-->
-<!--        <p id="role">Backend Developer & DevOps Enthusiast</p>-->
-<!--    </div>-->
-
-<!--    <div aria-hidden="true" id="decor-icons">-->
-<!--        &lt;!&ndash; decorative SVGs &ndash;&gt;-->
-<!--        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#FFD166" /></svg>-->
-<!--        <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="#06D6A0"/></svg>-->
-<!--    </div>-->
-<!--</header>-->
-
-<main id="main" role="main">
-    <!-- HERO / ABOUT with polaroid -->
-    <section id="about" aria-labelledby="about-title">
-        <figure id="polaroid">
-            <img src="../public/img/me.jpeg" alt="Портрет Олега Хайцына" width="420" height="420" loading="lazy">
-            <figcaption>
-                <strong>Олег Хайцын</strong>
-                <span>Backend & DevOps</span>
-            </figcaption>
+<main>
+    <header>
+        <figure>
+            <img src="../public/img/me.jpeg" alt="Олег Хайцын">
         </figure>
-
-        <div id="about-text">
-            <h2 id="about-title">Обо мне</h2>
-            <p id="location"><small>Могилев, Беларусь / Санкт-Петербург, Россия</small></p>
-            <p>
-                Бэкенд-разработчик с опытом проектирования API, работы с базами данных,
-                контейнеризацией и автоматизацией CI/CD. Создаю надёжные серверные решения,
-                оптимизирую производительность и проектирую архитектуру с учётом масштабируемости.
-            </p>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" aria-labelledby="exp-title">
-        <header>
-            <h2 id="exp-title">Опыт</h2>
-            <p class="subtitle">Учёба, стажировки и pet-проекты</p>
-        </header>
-
-        <article aria-labelledby="exp-itmo" data-animate="pop">
-            <h3 id="exp-itmo">Студент (3 курс) — Университет ИТМО</h3>
-            <time datetime="2021">2021 — настоящее</time>
-            <p>Осваиваю backend и DevOps: распределённые системы, базы данных, микросервисы, сетевые технологии.</p>
-        </article>
-
-        <article aria-labelledby="exp-open" data-animate="pop">
-            <h3 id="exp-open">Pet-проекты и open-source</h3>
-            <ul>
-                <li>Учебные микросервисы на C# и Go (REST / gRPC)</li>
-                <li>Эксперименты с Cassandra, Redis, PostgreSQL</li>
-                <li>Игровой движок на Go, вклад в open-source</li>
-            </ul>
-        </article>
-
-        <article aria-labelledby="exp-intern" data-animate="pop">
-            <h3 id="exp-intern">Стажировка — FinTech Startup</h3>
-            <time datetime="2022">2022</time>
-            <p>Разработка API на FastAPI, CI/CD в GitHub Actions, Docker, PostgreSQL.</p>
-        </article>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" aria-labelledby="skills-title">
-        <header>
-            <h2 id="skills-title">Навыки</h2>
-            <p class="subtitle">Технологии и компетенции</p>
-        </header>
-
-        <div id="skills-grid">
-            <div aria-labelledby="core-title" data-animate="spring">
-                <h3 id="core-title">Backend & Core</h3>
-                <p>Основные языки и подходы к разработке серверной части приложений</p>
-                <ul>
-                    <li><strong>C#</strong> — ASP.NET Core, Entity Framework, LINQ</li>
-                    <li><strong>Go</strong> — высокопроизводительные сервисы, конкурентность</li>
-                    <li><strong>Python</strong> — FastAPI, Django, скриптинг</li>
-                    <li><strong>REST API</strong> — проектирование и документирование</li>
-                    <li><strong>gRPC</strong> — межсервисное взаимодействие</li>
-                    <li><strong>Микросервисы</strong> — декомпозиция и оркестрация</li>
-                    <li><strong>CQRS & Event Sourcing</strong> — паттерны архитектуры</li>
-                </ul>
-            </div>
-
-            <div aria-labelledby="databases-title" data-animate="spring">
-                <h3 id="databases-title">Базы данных</h3>
-                <p>Работа с реляционными и NoSQL хранилищами</p>
-                <ul>
-                    <li><strong>PostgreSQL</strong> — индексы, оптимизация запросов</li>
-                    <li><strong>MongoDB</strong> — документо-ориентированные БД</li>
-                    <li><strong>Redis</strong> — кеширование, очереди задач</li>
-                    <li><strong>Cassandra</strong> — распределенные системы</li>
-                    <li><strong>Kafka</strong> — стриминг событий</li>
-                </ul>
-            </div>
-
-            <div aria-labelledby="tools-title" data-animate="spring">
-                <h3 id="tools-title">DevOps & Tools</h3>
-                <p>Инструменты автоматизации и инфраструктуры</p>
-                <ul>
-                    <li><strong>Docker</strong> — контейнеризация приложений</li>
-                    <li><strong>Docker Compose</strong> — локальная разработка</li>
-                    <li><strong>GitHub Actions</strong> — CI/CD пайплайны</li>
-                    <li><strong>Nginx</strong> — реверс-прокси, балансировка</li>
-                    <li><strong>Git</strong> — версионирование, branching стратегии</li>
-                    <li><strong>Linux</strong> — администрирование серверов</li>
-                </ul>
-            </div>
-
-            <div aria-labelledby="soft-title" data-animate="spring">
-                <h3 id="soft-title">Методологии & Soft Skills</h3>
-                <p>Профессиональные навыки и подходы к работе</p>
-                <ul>
-                    <li><strong>Командная работа</strong> — code review, парное программирование</li>
-                    <li><strong>Документирование</strong> — OpenAPI, README, ADR</li>
-                    <li><strong>Тестирование</strong> — Unit, Integration, E2E тесты</li>
-                    <li><strong>Архитектурное мышление</strong> — проектирование систем</li>
-                    <li><strong>Agile/Scrum</strong> — гибкая разработка</li>
-                    <li><strong>Анализ требований</strong> — декомпозиция задач</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <!-- PROJECTS -->
-    <section id="projects" aria-labelledby="proj-title">
-        <header>
-            <h2 id="proj-title">Проекты</h2>
-            <p class="subtitle">Карточки проектов — стек и ссылка</p>
-        </header>
-
-        <div id="projects-list" aria-live="polite">
-            <article data-animate="tilt">
-                <header>
-                    <!-- SVG-иконка проекта -->
-                    <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" fill="#118AB2"/></svg>
-                    <h3>AirVM — переносимая виртуальная машина</h3>
-                </header>
-                <p class="muted">C, Make — архитектура VM, байткод и отладчик</p>
-                <p>Встраиваемая виртуальная машина для выполнения текстового байткода, модульная архитектура и инструменты разработки.</p>
-                <p><strong>Стек:</strong> C, Make, CI</p>
-                <p><a href="https://github.com/docup1/AirVM" target="_blank" rel="noopener">Исходный код</a></p>
-            </article>
-
-            <article data-animate="tilt">
-                <header>
-                    <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#06D6A0"/></svg>
-                    <h3>Unlim — социальная платформа</h3>
-                </header>
-                <p class="muted">ASP.NET Core, MongoDB, Redis</p>
-                <p>Платформа для публикации проектов и рекомендаций — CQRS и микросервисы.</p>
-                <p><strong>Стек:</strong> C#, MongoDB, Redis, Docker</p>
-                <p><a href="https://github.com/docup1/Unlim" target="_blank" rel="noopener">Исходный код</a></p>
-            </article>
-
-            <article data-animate="tilt">
-                <header>
-                    <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z" fill="#EF476F"/></svg>
-                    <h3>WitMotion BLE Connector</h3>
-                </header>
-                <p class="muted">C++, Qt, CMake</p>
-                <p>Кроссплатформенная библиотека для взаимодействия с IMU датчиками через Bluetooth + пример с Qt.</p>
-                <p><strong>Стек:</strong> C++, Qt, CMake</p>
-                <p><a href="https://github.com/docup1/WitMotion-BLE" target="_blank" rel="noopener">Исходный код</a></p>
-            </article>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title">Контакты</h2>
-        <p class="subtitle">Свяжитесь для обсуждения проектов</p>
-
-        <address>
-            <p>
-                <!-- email icon -->
-                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z" fill="#118AB2"/></svg>
-                <a href="mailto:oleg.haitsyn@example.com">oleg.haitsyn@example.com</a>
-            </p>
-
-            <p>
-                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#06D6A0"/></svg>
-                <a href="https://t.me/oleg_dev" target="_blank" rel="noopener">@oleg_dev</a>
-            </p>
-
-            <p>
-                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="#FFD166"/></svg>
-                <a href="https://github.com/docup1" target="_blank" rel="noopener">github.com/docup1</a>
-            </p>
-        </address>
-
+        <h1 data-text="Олег Хайцын">Олег Хайцын</h1>
+        <p class="subtitle">Backend & Systems Engineer</p>
+        <p class="location">Санкт-Петербург / Могилев</p>
         <p>
-            <button id="print-btn" aria-label="Распечатать страницу">Распечатать / Скачать PDF</button>
+            Backend и системный инженер: разработка высоконагруженных сервисов, архитектура распределённых систем,
+            создание компиляторов и виртуальных машин, BLE-инструменты и протоколы, системное программирование.
+            C#, Go, C++, .NET 8, Kubernetes, микросервисы, оптимизация производительности.
         </p>
+    </header>
+
+    <hr>
+
+    <section>
+        <h2>Опыт работы</h2>
+        <p class="section-subtitle">Коммерческая разработка, системное программирование и архитектура сервисов</p>
+
+        <div class="grid">
+
+            <article>
+                <h3>Freelance / Open-Source — Backend & Systems Engineer<br>
+                    <small>2022 — по н.в.</small></h3>
+                <p>
+                    • Проектирование и разработка высоконагруженных сервисов на .NET 8 и Go<br>
+                    • Создание собственной стековой виртуальной машины AirVM (C/C++/Zig) с байткодом и инструментами<br>
+                    • Кроссплатформенная BLE-библиотека для датчиков WitMotion WT9011 (Qt Bluetooth + C++17)<br>
+                    • Архитектура распределённой соцсети Unlim (Event Sourcing + CQRS + DDD)<br>
+                    • Kubernetes, Docker, CI/CD, Redis, PostgreSQL, MongoDB, оптимизация производительности и профилирование
+                </p>
+            </article>
+
+            <article>
+                <h3>R&D и частные проекты<br>
+                    <small>2021 — 2022</small></h3>
+                <p>
+                    • Разработка серверных подсистем и собственных протоколов<br>
+                    • Исследования в области компиляторов, виртуальных машин и JIT-оптимизаций<br>
+                    • Создание инструментов для BLE-устройств, систем сбора данных, картографических сервисов
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Образование</h2>
+        <div class="grid">
+
+            <article>
+                <h3>ИТМО University — Прикладная математика и информатика<br>
+                    <small>2021 — 2025</small></h3>
+                <p>
+                    Специализация: высоконагруженные системы, алгоритмы, распределённые вычисления<br>
+                    Учебные и R&D-проекты: компиляторы, виртуальные машины, сетевые протоколы
+                </p>
+            </article>
+
+            <article>
+                <h3>Самообразование и R&D<br>
+                    <small>2022 — 2024</small></h3>
+                <p>
+                    Системное программирование (C/C++/Zig), оптимизация, JIT-компиляторы, сетевые протоколы,
+                    разработка высоконагруженных микросервисов и событийных архитектур
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Технологии</h2>
+        <p class="section-subtitle">Мой основной стек</p>
+
+        <div class="grid">
+
+            <article>
+                <h3>Languages & Frameworks</h3>
+                <div class="tags">
+                    <span class="tag">Go</span>
+                    <span class="tag">C# / .NET 8</span>
+                    <span class="tag">C / C++17</span>
+                    <span class="tag">Zig</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">gRPC</span>
+                </div>
+            </article>
+
+            <article>
+                <h3>Data & Messaging</h3>
+                <div class="tags">
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">Redis</span>
+                    <span class="tag">NATS</span>
+                    <span class="tag">Kafka</span>
+                </div>
+            </article>
+
+            <article>
+                <h3>DevOps & Infra</h3>
+                <div class="tags">
+                    <span class="tag">Docker</span>
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">NGINX</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">GitHub Actions</span>
+                </div>
+            </article>
+
+            <article>
+                <h3>Architecture & Patterns</h3>
+                <div class="tags">
+                    <span class="tag">Hexagonal</span>
+                    <span class="tag">Clean Architecture</span>
+                    <span class="tag">CQRS</span>
+                    <span class="tag">Event Sourcing</span>
+                    <span class="tag">DDD</span>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Избранные проекты</h2>
+        <div class="grid">
+
+            <article>
+                <h3>AirVM — стековая виртуальная машина</h3>
+                <p>
+                    C/C++/Zig • модульный байткод • 8 регистров • бинарный формат<br>
+                    Парсер, интерпретатор, дизассемблер, дебаггер, собственный компилятор (в разработке)
+                </p>
+                <a href="https://github.com/docup1/AirVM" target="_blank" class="card-link">GitHub →</a>
+            </article>
+
+            <article>
+                <h3>WT9011 BLE Library</h3>
+                <p>
+                    Кроссплатформенная BLE-библиотека: чтение IMU-данных, парсинг пакетов, колбэки, реальный Bluetooth-стек
+                    (macOS / Linux / Windows), Qt6.
+                </p>
+                <a href="https://github.com/docup1" target="_blank" class="card-link">GitHub →</a>
+            </article>
+
+            <article>
+                <h3>Unlim — социальная платформа</h3>
+                <p>
+                    .NET 8 • MongoDB • Redis • Event Sourcing • CQRS • ElasticSearch<br>
+                    Лента, профили, подписки, изменение истории событий, приватность и поиск
+                </p>
+                <a href="https://github.com/docup1/Unlim" target="_blank" class="card-link">GitHub →</a>
+            </article>
+
+        </div>
+    </section>
+
+    <hr>
+
+    <section style="text-align:center;">
+        <h2>Открыт для предложений в 2025</h2>
+        <p class="section-subtitle">
+            Backend / Systems Engineer • Go или .NET • High-load • Distributed Systems<br>
+            Удалённо или релокация в Европу
+        </p>
+
+        <div style="margin-top:60px;display:flex;gap:25px;justify-content:center;flex-wrap:wrap;">
+            <a href="mailto:oleg.khaytsin@gmail.com" class="btn btn-primary">oleg.khaytsin@gmail.com</a>
+            <a href="https://t.me/oleg_dev" class="btn btn-secondary">Telegram</a>
+            <a href="https://github.com/docup1" class="btn btn-secondary">GitHub</a>
+            <a href="https://cv.olegkh.dev" class="btn btn-secondary">PDF CV</a>
+        </div>
     </section>
 </main>
 
-<!--<footer role="contentinfo">-->
-<!--    <p>&copy; 2025 Олег Хайцын — создано с любовью к архитектуре и простоте.</p>-->
-<!--</footer>-->
+<!-- Тот же скрипт с частицами и 3D-карточками (без изменений) -->
+<script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
 
-<!-- JS -->
-<script src="scripts/progress.js" defer></script>
-<script src="scripts/main.js" defer></script>
+    const particles = [];
+    const colors = ['#00f0ff','#ff006e','#8b5cf6','#00ff88'];
+    class Particle {
+        constructor(){
+            this.x = Math.random()*canvas.width;
+            this.y = Math.random()*canvas.height;
+            this.size = Math.random()*3+1;
+            this.speedX = Math.random()*2-1;
+            this.speedY = Math.random()*2-1;
+            this.color = colors[Math.floor(Math.random()*colors.length)];
+        }
+        update(){
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if(this.x > canvas.width || this.x < 0) this.speedX *= -1;
+            if(this.y > canvas.height || this.y < 0) this.speedY *= -1;
+        }
+        draw(){
+            ctx.fillStyle = this.color;
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+            ctx.fill();
+        }
+    }
+    for(let i=0;i<80;i++) particles.push(new Particle());
+
+    function connectParticles(){
+        for(let i=0;i<particles.length;i++){
+            for(let j=i+1;j<particles.length;j++){
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.hypot(dx,dy);
+                if(dist < 120){
+                    ctx.strokeStyle = `rgba(0,240,255,${1-dist/120})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+    function animate(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        particles.forEach(p=> {p.update();p.draw();});
+        connectParticles();
+        requestAnimationFrame(animate);
+    }
+    animate();
+    addEventListener('resize',()=>{canvas.width=innerWidth;canvas.height=innerHeight;});
+
+    document.addEventListener('mousemove', e => {
+        document.querySelector('.cursor-glow').style.left = e.clientX + 'px';
+        document.querySelector('.cursor-glow').style.top = e.clientY + 'px';
+    });
+
+    document.querySelectorAll('article').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.transform = `translateY(-20px) rotateX(${(rect.height/2-y)/10}deg) rotateY(${(rect.width/2-x)/10}deg) scale(1.02)`;
+        });
+        card.addEventListener('mouseleave', () => card.style.transform = '');
+    });
+</script>
 </body>
 </html>
