@@ -431,7 +431,7 @@ article h3 {
     gap: 10px;
     margin-top: 20px;
 }
-.tag {
+.tags span {
     padding: 8px 20px;
     background: rgba(0,240,255,.1);
     color: var(--neon-blue);
