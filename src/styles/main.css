@@ -182,7 +182,7 @@ header > p:nth-of-type(n+3) {
    H1/Glitch & Gradient
 ========================== */
 h1 {
-    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-size: clamp(3rem, 10vw, 7rem);
     font-weight: 900;
     background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple), var(--neon-pink), var(--neon-green));
     background-size: 300% 300%;
