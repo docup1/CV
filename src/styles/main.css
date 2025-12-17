@@ -110,9 +110,6 @@ header img {
     transition: transform .4s;
 }
 
-header figure:hover img {
-    transform: scale(1.05); /* Лёгкое увеличение при ховере */
-}
 
 /* --------------------------
    Главный заголовок (H1)
@@ -285,7 +282,6 @@ img {
     border: 8px solid var(--bg-start);
     transition: transform .5s;
 }
-figure:hover img { transform: scale(1.05); }
 
 /* ==========================
    Кнопки
@@ -313,7 +309,6 @@ figure:hover img { transform: scale(1.05); }
     transform: translate(-50%,-50%);
     transition: width .6s, height .6s;
 }
-.btn:hover::before { width: 400px; height: 400px; }
 
 /* Примеры стилей кнопок */
 .btn-primary {
@@ -322,21 +317,13 @@ figure:hover img { transform: scale(1.05); }
     border-color: var(--neon-blue);
     box-shadow: 0 0 40px rgba(0,240,255,.4), 0 8px 20px rgba(0,0,0,.3);
 }
-.btn-primary:hover {
-    transform: translateY(-8px) scale(1.08);
-    box-shadow: 0 0 60px rgba(0,240,255,.8), 0 15px 40px rgba(0,0,0,.4);
-}
+
 
 .btn-secondary {
     background: transparent;
     color: var(--neon-pink);
     border-color: var(--neon-pink);
     box-shadow: 0 0 30px rgba(255,0,110,.3);
-}
-.btn-secondary:hover {
-    background: var(--neon-pink);
-    color: white;
-    transform: translateY(-6px) scale(1.05);
 }
 
 /* ==========================
@@ -394,7 +381,6 @@ article::before {
     background: linear-gradient(90deg, transparent, rgba(0,240,255,.2), transparent);
     transition: left .7s;
 }
-article:hover::before { left: 100%; }
 
 article::after {
     content: '';
@@ -406,13 +392,8 @@ article::after {
     transition: opacity .5s;
     z-index: -1;
 }
-article:hover::after { opacity: 1; }
 
-article:hover {
-    transform: translateY(-20px) scale(1.02);
-    box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 0 80px rgba(0,240,255,.4);
-    border-color: var(--neon-blue);
-}
+
 
 article h3 {
     font-size: 1.8rem;
@@ -442,11 +423,7 @@ article h3 {
     transition: all .4s;
     box-shadow: 0 0 20px rgba(0,240,255,.2);
 }
-.tag:hover {
-    background: var(--neon-blue);
-    color: var(--bg-start);
-    transform: translateY(-4px) scale(1.1);
-}
+
 
 /* ==========================
    Разделитель (HR)

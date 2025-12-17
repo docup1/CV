@@ -6,7 +6,7 @@
     <meta name="description" content="Олег Хайцын — Backend & DevOps Engineer. Java, C#, высокие нагрузки, микросервисы." />
     <title>Олег Хайцын — Backend & DevOps Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="styles/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
 <canvas id="particles-canvas"></canvas>
@@ -17,22 +17,22 @@
             <img src="../public/img/me.jpeg" alt="Олег Хайцын">
         </figure>
         <h1 data-text="Олег Хайцын">Олег Хайцын</h1>
-        <p>Backend & Systems Engineer</p>
+        <p>Fullstack & Systems Engineer</p>
         <p>Санкт-Петербург / Могилев</p>
         <p>
             Backend и системный инженер, специализирующийся на высоконагруженных сервисах,
             распределённых системах и низкоуровневой разработке. Проектирую и оптимизирую архитектуру,
-            разрабатываю компиляторы и виртуальные машины, утилизирую BLE-протоколы и создаю инструменты
-            для реального оборудования.
+            разрабатываю компиляторы и виртуальные машины, работаю с BLE-протоколами и создаю инструменты
+            для реального оборудования. Работаю как с серверной частью, так и с современным фронтендом (React + TypeScript).
         </p>
         <p>
-            Мой технологический фокус — <strong>C#, Java, C++, .NET 8</strong>, микросервисные платформы,
+            Мой технологический фокус — <strong>C#, Java, C++, .NET 8/9, TypeScript</strong>, микросервисные платформы,
             высокопроизводительные вычисления, конкурентные алгоритмы и системные API. В работе предпочитаю
             инженерный подход: точные метрики, тестируемость, надёжность и масштабируемость.
         </p>
         <p>
-            Вне профессиональных задач я увлекаюсь инженерией и цифровым производством:<br>3D-печать,
-            модификация принтеров, эксперименты с механикой.
+            Вне профессиональных задач я увлекаюсь инженерией и цифровым производством: 3D-печать,
+            модификация принтеров, разработка электроники, эксперименты с механикой.
         </p>
     </header>
     <hr>
@@ -41,23 +41,27 @@
         <p class="section-subtitle">Коммерческая разработка, системное программирование и архитектура сервисов</p>
         <div class="grid">
             <article>
-                <h3>Freelance / Open-Source — Backend & Systems Engineer<br>
+                <h3>Freelance / Open-Source — Fullstack & Systems Engineer<br>
                     <small>2022 — по н.в.</small></h3>
                 <ul>
-                    <li>Проектирование и разработка высоконагруженных сервисов на .NET 8 и Java</li>
+                    <li>Проектирование и разработка высоконагруженных сервисов на .NET 8/9 и Java (Spring Boot)</li>
+                    <li>Fullstack-разработка: React + TypeScript + Tailwind — дашборды, админ-панели, инструменты визуализации</li>
                     <li>Создание собственной стековой виртуальной машины AirVM (C/C++) с байткодом и инструментами</li>
-                    <li>Кроссплатформенная BLE-библиотека для датчиков WitMotion WT9011 (Qt Bluetooth + C++17)</li>
-                    <li>Архитектура распределённой соцсети Unlim (Event Sourcing + CQRS + DDD)</li>
-                    <li>Docker, CI/CD, Redis, PostgreSQL, MongoDB, оптимизация производительности и профилирование</li>
+                    <li>Кроссплатформенная BLE-библиотека для датчиков WitMotion WT9011 (Qt6 Bluetooth + C++17)</li>
+                    <li>Архитектура распределённой соцсети Unlim (Event Sourcing + CQRS + DDD + MongoDB + Redis)</li>
+                    <li>REST API на C# (.NET 9) и Java для высоконагруженных сервисов</li>
+                    <li>Docker, CI/CD (GitHub Actions), Redis, PostgreSQL, MongoDB, оптимизация производительности</li>
                 </ul>
             </article>
             <article>
                 <h3>R&D и частные проекты<br>
-                    <small>2021 — по н.в</small></h3>
+                    <small>2021 — по н.в.</small></h3>
                 <ul>
                     <li>Разработка серверных подсистем и собственных протоколов</li>
                     <li>Исследования в области компиляторов, виртуальных машин и JIT-оптимизаций</li>
-                    <li>Создание инструментов для BLE-устройств, систем сбора данных, картографических сервисов</li>
+                    <li>Создание инструментов для BLE-устройств, систем сбора данных, картографических веб-сервисов</li>
+                    <li>Fullstack-инструменты мониторинга и интеграционные панели (React + Node.js + WebSocket)</li>
+                    <li>Проектирование кастомных сетевых протоколов и low-level подсистем</li>
                 </ul>
             </article>
         </div>
@@ -79,7 +83,8 @@
                     <small>Forever</small></h3>
                 <p>
                     Системное программирование (C/C++), оптимизация, JIT-компиляторы, сетевые протоколы,
-                    разработка высоконагруженных микросервисов и событийных архитектур
+                    разработка высоконагруженных микросервисов и событийных архитектур. Самообучился всем
+                    технологиям через практику и open-source.
                 </p>
             </article>
         </div>
@@ -92,11 +97,32 @@
             <article>
                 <h3>Languages & Frameworks</h3>
                 <div class="tags">
-                    <span>Java</span>
-                    <span>C# / .NET 8</span>
-                    <span>C / C++17</span>
+                    <span>C# / .NET 8/9</span>
+                    <span>Java / Spring</span>
+                    <span>C / C++17/20</span>
+                    <span>TypeScript/JavaScript</span>
                     <span>Python</span>
+                    <span>SQL</span>
+                </div>
+            </article>
+            <article>
+                <h3>Frontend</h3>
+                <div class="tags">
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Tailwind CSS</span>
+                    <span>Vite</span>
+                </div>
+            </article>
+            <article>
+                <h3>Backend & Architecture</h3>
+                <div class="tags">
+                    <span>ASP.NET</span>
+                    <span>REST</span>
+                    <span>SOAP</span>
                     <span>gRPC</span>
+                    <span>DDD</span>
+                    <span>Microservices</span>
                 </div>
             </article>
             <article>
@@ -105,21 +131,23 @@
                     <span>PostgreSQL</span>
                     <span>MongoDB</span>
                     <span>Redis</span>
-                    <span>Casandra</span>
+                    <span>Cassandra</span>
                     <span>Kafka</span>
+                    <span>Entity Framework</span>
                 </div>
             </article>
             <article>
                 <h3>DevOps & Infra</h3>
                 <div class="tags">
                     <span>Docker</span>
+                    <span>Kubernetes</span>
                     <span>NGINX</span>
                     <span>Linux</span>
                     <span>GitHub Actions</span>
                 </div>
             </article>
             <article>
-                <h3>Architecture & Patterns</h3>
+                <h3>Architecture Patterns</h3>
                 <div class="tags">
                     <span>Hexagonal</span>
                     <span>Clean Architecture</span>
@@ -145,18 +173,41 @@
             <article>
                 <h3>WT9011 BLE Library</h3>
                 <p>
-                    Кроссплатформенная BLE-библиотека: чтение IMU-данных, парсинг пакетов, колбэки, реальный Bluetooth-стек
-                    (macOS / Linux / Windows), Qt6.
+                    Кроссплатформенная BLE-библиотека для промышленных IMU-датчиков: чтение данных, парсинг пакетов,
+                    колбэки, реальный Bluetooth-стек (macOS / Linux / Windows), Qt6 + C++17.
                 </p>
-                <a href="https://github.com/docup1" target="_blank" class="card-link">GitHub →</a>
+                <a href="https://github.com/docup1/WitMotionBLE" target="_blank" class="card-link">GitHub →</a>
             </article>
             <article>
                 <h3>Unlim — социальная платформа</h3>
                 <p>
-                    .NET 8 • MongoDB • Redis • Event Sourcing • CQRS • ElasticSearch<br>
-                    Лента, профили, подписки, изменение истории событий, приватность и поиск
+                    .NET 8/9 • MongoDB • Redis • Event Sourcing • CQRS • ElasticSearch<br>
+                    Высоконагруженная социальная платформа: лента, профили, подписки, изменение истории событий,
+                    строгая приватность и поиск
                 </p>
                 <a href="https://github.com/docup1/Unlim" target="_blank" class="card-link">GitHub →</a>
+            </article>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <h2>Личные качества</h2>
+        <div class="grid">
+            <article>
+                <h3>Профессиональные навыки</h3>
+                <ul>
+                    <li>Быстро вникаю в сложные предметные области</li>
+                    <li>Умею аргументировать и отстаивать архитектурные решения</li>
+                    <li>Пишу чистый, тестируемый и документированный код</li>
+                    <li>Опыт менторства и code review</li>
+                </ul>
+            </article>
+            <article>
+                <h3>Языки</h3>
+                <ul>
+                    <li>Русский — родной</li>
+                    <li>Английский — Intermediate (технический — Advanced)</li>
+                </ul>
             </article>
         </div>
     </section>
@@ -164,7 +215,7 @@
     <section style="text-align:center;">
         <h2>Открыт<br>для<br>предложений</h2>
         <p class="section-subtitle">
-            Backend / Systems Engineer • Java или .NET • High-load • Distributed Systems
+            Fullstack / Backend / Systems Engineer • Java или .NET • High-load • Distributed Systems • React + TypeScript
         </p>
         <div style="margin-top:60px;display:flex;gap:25px;justify-content:center;flex-wrap:wrap;">
             <a href="mailto:haitsynoleg@yandex.by" class="btn btn-primary">haitsynoleg@yandex.by</a>
