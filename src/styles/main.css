@@ -462,3 +462,17 @@ hr {
     figure { width: 250px; height: 250px; }
     article { padding: 30px; }
 }
+
+
+a {
+    color: #fff3e4;
+    display: inline-block;
+    transition: all 0.3s ease; /* анимируем и цвет, и transform */
+    text-decoration: none; /* убираем стандартное подчеркивание */
+}
+
+a:hover {
+    color: #f1e2d1;
+    transform: scale(1.05);
+    text-decoration: underline; /* добавляем подчеркивание при наведении */
+}
